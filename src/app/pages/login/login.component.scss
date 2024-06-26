@@ -2,14 +2,12 @@
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .form-group {
     margin-bottom: 15px;
+    width: 60%;
   }
   
   label {
@@ -27,12 +25,14 @@
   }
   
   button {
-    background-color: #4CAF50;
+    background-color: black;
     width: 100%;
     color: white;
     padding: 10px 15px;
+    margin-top: 20px !important;
     border: none;
     border-radius: 3px;
+    width: 40%;
     cursor: pointer;
   }
   
@@ -40,18 +40,11 @@
     padding-top: 10px;
     padding-bottom: 30px;
     font-weight: bold;
-    font-size: medium;
+    font-size: 400%;
+    text-align: center;
    }
 
   .centraliza {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 8px;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  .error-message {
-    color: red;
-    margin-top: 10px;
+    display: block; 
+    margin: auto;
   }
