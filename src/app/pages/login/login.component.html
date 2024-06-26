@@ -1,0 +1,31 @@
+<div class="login-container">  
+  <section>
+    <div class="centraliza">
+      <img src="../../../assets/img/sankofa_logo.png" alt=""  />
+    </div>
+    <br/>
+  </section>
+
+  <div class="titulo-principal">Autenticação</div>
+
+  <form>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" [(ngModel)]="request.email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="request.password" required>
+    </div>
+
+    <div class="centraliza">
+      <button type="button" (click)="autenticar()">Entrar</button>
+    </div>
+
+    <!-- Mensagem de erro -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>
