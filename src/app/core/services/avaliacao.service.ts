@@ -1,18 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { LoginRequest } from '../../models/login-request';
-import { LoginResponse } from '../../models/login-response'; 
+import { AvaliacaoRequest } from '../../models/avaliacao-request';
+import { LoginResponse } from '../../models/login-response';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AutenticacaoService {
+export class AvaliacaoService {
 
   constructor(private http: HttpClient) { }
 
-  autenticar(request: LoginRequest): Observable<LoginResponse> {
+  enviarAvaliacao(request: AvaliacaoRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>('/api/v1/login', request)
       .pipe(
         catchError(this.handleError)

@@ -1,0 +1,13 @@
+<div class="avaliacao-container">
+    <h2>Avaliação do Cliente</h2>
+    <form>
+      <label for="escala">Escala de 1 a 5:</label>
+      <input type="range" id="escala" name="escala" min="1" max="5" [(ngModel)]="escala">
+      <br>
+      <label for="observacoes">Observações:</label>
+      <textarea id="observacoes" name="observacoes" rows="4" [(ngModel)]="observacoes"></textarea>
+      <br>
+      <button type="button" (click)="enviarAvaliacao()">Votar</button>
+    </form>
+  </div>
+  

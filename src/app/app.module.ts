@@ -11,13 +11,16 @@ import { JsonPipe} from '@angular/common';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatIconModule} from '@angular/material/icon';
 import { MatInputModule} from '@angular/material/input';
+import { AvaliacaoComponent } from './pages/avaliacao/avaliacao.component';
+
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AvaliacaoComponent
   ],
   imports: [
     BrowserModule,

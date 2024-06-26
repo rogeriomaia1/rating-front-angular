@@ -1,0 +1,35 @@
+.avaliacao-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .avaliacao-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .avaliacao-container label {
+    margin-bottom: 10px;
+  }
+  
+  .avaliacao-container textarea {
+    margin-bottom: 10px;
+    resize: vertical;
+  }
+  
+  .avaliacao-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .avaliacao-container button:hover {
+    background-color: #0056b3;
+  }
+  
