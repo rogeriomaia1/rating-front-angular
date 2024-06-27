@@ -42,12 +42,12 @@ export class GraficosComponent implements OnInit {
 
     const data = {
       //  labels:  this.dadoGraficoPizza.listaProduto,
-      labels: ['MGLU4F', 'BOV11', 'VAL67C', 'GOO3D'],
+      labels: ['Péssimo', 'Ruim', 'Regular', 'Bom', 'Ótimo'],
       datasets: [
         {
           label: 'Percentual da carteira',
           // data: this.dadoGraficoPizza.listaPercentual
-          data: [45, 25, 20, 10]
+          data: [3, 7, 10, 10, 70]
         }
       ]
     };
@@ -62,8 +62,8 @@ export class GraficosComponent implements OnInit {
             position: 'right',
           },
           title: {
-            display: true,
-            text: 'Composição da carteira'
+            display: false,
+            text: 'Composição da avaliação de compra'
           }
         }
       },
@@ -86,11 +86,6 @@ export class GraficosComponent implements OnInit {
   }
 
   public voltar(): void {
-    const queryParams = {
-      username: this.username,
-      listaRendimento: this.listaRendimento
-    };
-
-    this.router.navigate(["grid-resultado"], { queryParams: queryParams });
+        this.router.navigate(["selecao"]);
   }
 }

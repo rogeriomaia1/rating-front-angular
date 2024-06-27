@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "operacao-bolsa-front": {
+    "rating-front-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/operacao-bolsa-front",
+            "outputPath": "dist/rating-front-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -70,18 +70,21 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "operacao-bolsa-front:build:production"
+              "buildTarget": "rating-front-angular:build:production"
             },
             "development": {
-              "buildTarget": "operacao-bolsa-front:build:development"
+              "buildTarget": "rating-front-angular:build:development"
             }
+          },
+          "options": {
+            "proxyConfig": "proxy.conf.json"
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "operacao-bolsa-front:build"
+            "buildTarget": "rating-front-angular:build"
           }
         },
         "test": {

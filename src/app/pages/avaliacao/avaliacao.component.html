@@ -1,13 +1,48 @@
-<div class="avaliacao-container">
-    <h2>Avaliação do Cliente</h2>
-    <form>
-      <label for="escala">Escala de 1 a 5:</label>
-      <input type="range" id="escala" name="escala" min="1" max="5" [(ngModel)]="escala">
-      <br>
-      <label for="observacoes">Observações:</label>
-      <textarea id="observacoes" name="observacoes" rows="4" [(ngModel)]="observacoes"></textarea>
-      <br>
-      <button type="button" (click)="enviarAvaliacao()">Votar</button>
-    </form>
+<section class="Header">
+  <div class="titulo-principal">
+    <section>
+      <div class="centraliza">
+        <img src="../../../assets/img/sankofa_logo.jpg" alt="" />
+      </div>
+      <br />
+    </section>
+    Avaliação do cliente
   </div>
-  
+</section>
+
+<div class="avaliacao-container">
+  <form class="form-container">
+    <div class="form-group">
+      <label for="escala">Sua avaliação:</label>
+      <input type="range" class="range" id="escala" name="escala" min="1" max="5" [(ngModel)]="request.score" step="1" list="tickmarks">
+      <datalist id="tickmarks">
+        <option value="1" label="Péssimo"></option>
+        <option value="2" label="Ruim"></option>
+        <option value="3" label="Regular"></option>
+        <option value="4" label="Bom"></option>
+        <option value="5" label="Ótimo"></option>
+      </datalist>
+      <div class="slider-labels">
+        <span style="text-align:left">Péssimo</span>
+        <span>Ruim</span>
+        <span>Regular</span>
+        <span>Bom</span>
+        <span style="text-align:right">Ótimo</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="observacoes">Observações:</label>
+      <textarea id="observacoes" name="observacoes" rows="10" cols="60" [(ngModel)]="request.comments"></textarea>
+    </div>
+
+    <div>
+      <button type="button" class="centraliza" (click)="enviarAvaliacao()">Votar</button>
+    </div>
+
+    <!-- Mensagem de erro -->
+    <div *ngIf="errorMessage" class="centraliza error-message">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

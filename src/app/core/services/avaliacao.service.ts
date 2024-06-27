@@ -1,17 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { AvaliacaoRequest } from '../../models/avaliacao-request';
-import { LoginResponse } from '../../models/login-response';
+import { AvaliacaoResponse } from '../../models/avaliacao-response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AvaliacaoService {
-
+  
   constructor(private http: HttpClient) { }
 
-  enviarAvaliacao(request: AvaliacaoRequest): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>('/api/v1/login', request)
+  enviarAvaliacao(request: AvaliacaoRequest): Observable<AvaliacaoResponse> {
+    return this.http.post<AvaliacaoResponse>('/api/v1/ratings', request)
       .pipe(
         catchError(this.handleError)
       );
@@ -19,8 +21,9 @@ export class AvaliacaoService {
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = '';
-    if (error.status === 401) {
-      errorMessage = 'Falha na autenticação: Credenciais inválidas';
+
+    if (error.status === 404) {
+      errorMessage = 'Falha no envio da avaliação';
     } else {
       errorMessage = 'Problema no servidor. Por favor, tente novamente mais tarde.';
     }

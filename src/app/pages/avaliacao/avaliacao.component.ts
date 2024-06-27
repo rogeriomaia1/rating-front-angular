@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AvaliacaoRequest } from '../../models/avaliacao-request';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AvaliacaoService } from '../../core/services/avaliacao.service';
+import { LocalStorageService } from '../../core/services/local-storage.service';
 
 
 @Component({
@@ -6,21 +10,52 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './avaliacao.component.html',
   styleUrls: ['./avaliacao.component.scss']
 })
+
 export class AvaliacaoComponent {
-  escala: number = 3; // Valor inicial da escala
-  observacoes: string = '';
+  request: AvaliacaoRequest = {
+    email: '',
+    score: 4 ,
+    comments:'',
+    contactNumber: '',
+    contactTime: '',
+    contactRequest: false
+  };
+  errorMessage: String = '';
 
-  enviarAvaliacao() {
-    
-    console.log('Escala:', this.escala);
-    console.log('Observações:', this.observacoes);
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private service: AvaliacaoService, 
+    private localStorageService: LocalStorageService) { 
 
-    // Limpar os campos após o envio, se necessário
-    this.limparCampos();
-  }
+      this.request.email = this.localStorageService.get('email'); 
+     }
+  
+     
+  public enviarAvaliacao(): void {
 
+    this.service.enviarAvaliacao(this.request).subscribe(
+       (data) => {
+        
+         this.router.navigate(['selecao']);
+       },
+       (error) => {
+         this.errorMessage = error;
+       }
+      ); 
+      
+      this.limparCampos();
+    }
+
+  
   limparCampos() {
-    this.escala = 3;
-    this.observacoes = '';
+    this.request = {
+      email: '',
+      score: 4 ,
+      comments:'',
+      contactNumber: '',
+      contactTime: '',
+      contactRequest: false
+    };
   }
 }

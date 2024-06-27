@@ -1,20 +1,33 @@
-<div class="login-container">
-   <section >
-      <div class="centraliza">
-         <img src="../../../assets/img/sankofa_logo.png" alt=""  />
-      </div>
-      <br/>
-   </section>
-   <div class="titulo-principal">Login</div>
+
+   
+   <div class="titulo-principal">
+      <section >
+         <div class="centraliza">
+            <img src="../../../assets/img/sankofa_logo.jpg" alt=""  />
+         </div>
+         <br/>
+      </section>   
+      Login
+   </div>
+
+   <div class="login-container">  
+
    <form>
       <div class="form-group centraliza">
          <label for="username">Usuário:</label>
-         <input type="text" id="username" name="username" [(ngModel)]="username" required>
+         <input type="text" id="username" name="username" [(ngModel)]="request.email" required>
          <label for="password">Senha:</label>
-         <input type="password" id="password" name="password" [(ngModel)]="password" required>
+         <input type="password" id="password" name="password" [(ngModel)]="request.password" required>
       </div>
       <div>
-         <button type="button" class="centraliza" (click)="login()">Entrar</button>
+         <button type="button" class="centraliza" (click)="autenticar()">Entrar</button>
+      </div>
+
+      <br/>
+      <!-- Mensagem de erro -->
+      <div *ngIf="errorMessage" class="centraliza error-message">
+         {{ errorMessage }}
       </div>
    </form>
 </div>
+
