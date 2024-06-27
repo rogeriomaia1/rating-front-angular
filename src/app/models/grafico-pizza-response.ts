@@ -1,4 +1,4 @@
 export interface GraficoPizzaResponse {
-    listaProduto: string[];
-    listaPercentual: number[];
+    listScore: string[];
+    listCount: number[];
     }

@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RendimentoService } from '../../core/services/redimento.service';
-import { Rendimento } from '../../models/rendimento';
 import { FormsModule } from '@angular/forms';
 import Chart from 'chart.js/auto';
 import { GraficoPizzaResponse } from '../../models/grafico-pizza-response';
 import { GraficosService } from '../../core/services/graficos.service';
-import { GraficoPizzaRequest } from '../../models/grafico-pizza-request';
 
 @Component({
   selector: 'app-graficos',
@@ -16,43 +13,47 @@ import { GraficoPizzaRequest } from '../../models/grafico-pizza-request';
   imports: [FormsModule],
 })
 export class GraficosComponent implements OnInit {
-  username: string = "";
-  dataInicio: string = "";
-  dataFim: string = "";
-  listaRendimento: Rendimento[] = [];
+  
   dadoGraficoPizza!: GraficoPizzaResponse;
   listaProduto: String[] = [];
   public chart: any;
-  request!: GraficoPizzaRequest;
-
-  constructor(private route: ActivatedRoute, private router: Router, private service: GraficosService) {
-    this.username = this.route.snapshot.queryParams['username'];
-    this.dataInicio = this.route.snapshot.queryParams['dataInicio'];
-    this.dataFim = this.route.snapshot.queryParams['dataFim'];
-    this.listaRendimento = this.route.snapshot.queryParams['listaRendimento'];
+  
+  constructor(private route: ActivatedRoute, 
+              private router: Router, 
+              private service: GraficosService) {
   }
 
   ngOnInit(): void {
     this.buscarDadosGraficoPizza();
+  }
+
+  buscarDadosGraficoPizza() {
+    this.service.buscarDadosGraficoAavaliacao().subscribe(
+      (data) => {
+        this.dadoGraficoPizza = data;
+        this.inicializarGrafico(); // Inicialize o gráfico após os dados serem carregados
+      },
+      (error: any) => {
+        console.error('Erro ao buscar dados do gráfico', error);
+      },
+    );
+  }
+
+  inicializarGrafico() {
     const ctx = document.getElementById('myChart') as HTMLCanvasElement;
 
-    // Dados do gráfico
-    const DATA_COUNT = 5;
-    const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+    const graficoData = this.dadoGraficoPizza;
 
     const data = {
-      //  labels:  this.dadoGraficoPizza.listaProduto,
-      labels: ['Péssimo', 'Ruim', 'Regular', 'Bom', 'Ótimo'],
+      labels: graficoData.listScore,
       datasets: [
         {
-          label: 'Percentual da carteira',
-          // data: this.dadoGraficoPizza.listaPercentual
-          data: [3, 7, 10, 10, 70]
+          data: graficoData.listCount
         }
       ]
     };
 
-    new Chart(ctx, {
+    this.chart = new Chart(ctx, {
       type: 'pie',
       data: data,
       options: {
@@ -70,22 +71,7 @@ export class GraficosComponent implements OnInit {
     });
   }
 
-  buscarDadosGraficoPizza() {
-    this.request = {
-      listaRendimento: this.listaRendimento
-    };
-
-    this.service.buscarDadosGraficoPizza(this.request).subscribe(
-      (data) => {
-        this.dadoGraficoPizza = data;
-      },
-      (error: any) => {
-        this.listaRendimento = [];
-      },
-    );
-  }
-
   public voltar(): void {
-        this.router.navigate(["selecao"]);
+    this.router.navigate(["selecao"]);
   }
 }
