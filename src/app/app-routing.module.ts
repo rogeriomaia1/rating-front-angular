@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SelecaoComponent } from './pages/selecao/selecao.component';
 import { GraficosComponent } from './pages/graficos/graficos.component';
 import { AvaliacaoComponent } from './pages/avaliacao/avaliacao.component';
+import { ListaAvaliacoesComponent } from './pages/lista-avaliacoes/lista-avaliacoes.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'selecao', component: SelecaoComponent},
   { path: 'dashboard', component: GraficosComponent},
   { path: 'avaliar', component: AvaliacaoComponent},
+  { path: 'lista-avaliacoes', component: ListaAvaliacoesComponent},
  
 ];
 

@@ -1,33 +1,41 @@
-
 .login-container {
      max-width: 600px;
      margin: auto;
      padding: 20px;
-     
      border-radius: 5px;
      background-color: #fff;
      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
- .form-group {
+  }
+  
+  .form-group {
      margin-bottom: 15px;
      width: 60%;
-}
- label {
+     position: relative; /* Adicionado para permitir posicionamento absoluto do botão X */
+  }
+  
+  label {
      display: block;
      margin-bottom: 5px;
-}
- input {
+  }
+  
+  input {
      width: 100%;
      padding: 8px;
      box-sizing: border-box;
      border: 1px solid #ccc;
      border-radius: 3px;
      margin-bottom: 10px;
-}
- button {
+  }
+  
+  .button-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 5px; /* Espaçamento entre os botões */
+  }
+  
+  button {
      background-color: black;
-     width: 100%;
      color: white;
      padding: 10px 15px;
      margin-top: 20px !important;
@@ -35,28 +43,88 @@
      border-radius: 3px;
      width: 40%;
      cursor: pointer;
-}
- .titulo-principal {
+   }
+  
+ 
+  
+  .small-button {
+     font-size: 12px; /* Tamanho da fonte menor */
+     background-color: #28405b; /* Cor de fundo */
+     width: 30px; /* Ajuste o tamanho do botão X */
+     height: 30px; /* Ajuste a altura do botão X */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+     color: white;
+     position: relative; /* Posicionamento absoluto */
+     top: 10px; /* Distância do topo */
+     right: -95%; /* Distância da direita */
+     border: none;
+     border-radius: 3px;
+  }
+  
+  .small-button:hover {
+     background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+  }
+  
+  .titulo-principal {
      padding-top: 10px;
      padding-bottom: 30px;
      font-weight: bold;
-     font-size: 400%;
+     font-size: 300%;
      text-align: center;
-}
- .centraliza {
+  }
+  
+  .centraliza {
      display: block;
      margin: auto;
-}
-
-
-
-
-.error-message {
+  }
+  
+  .error-message {
      color: #721c24;
      background-color: #f8d7da;
      border: 1px solid #f5c6cb;
      padding: 10px;
      margin-top: 10px;
      border-radius: 4px;
-   }
-   
+  }
+
+ 
+  .position-relative {
+     position: relative;
+  }
+
+  
+.icon-display {
+   transform: scale(1.2);
+ }
+ 
+ .icon-container {
+   display: flex; 
+   gap: 10px; 
+   margin-right: 5%;
+ }
+ 
+  
+ .small-button {
+   //font-size: 12px; 
+   background-color: #28405b; 
+   width: 30px; 
+   height: 30px; 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   color: white;
+   position: relative; 
+   top: 10px; 
+   right: -95%; 
+   border: none;
+   border-radius: 3px;
+ }
+ 
+ .small-button:hover {
+   background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+ }
+  

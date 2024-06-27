@@ -69,10 +69,9 @@ img {
   width:100%;
 }
 
-
 .form-container {
   display: flex;
-  justify-content: space-between; /* Distribui as divs esquerda e direita ao longo do container */
+  justify-content: space-between; 
 }
 
 .esquerda {
@@ -98,7 +97,6 @@ img {
   margin-bottom: 10px;
 }
 
-
 .label{
   text-align: left;
 }
@@ -117,5 +115,24 @@ img {
 
 .button-cinza:hover {
   background-color: #ddd;
+}
+
+.error-message {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.error-message-small {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 4px;
+  margin-top: 5px;
+  border-radius: 2px;
+  font-size: smaller;
 }
 

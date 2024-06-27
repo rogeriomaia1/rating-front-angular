@@ -4,13 +4,16 @@ import { FormsModule } from '@angular/forms';
 import Chart from 'chart.js/auto';
 import { GraficoPizzaResponse } from '../../models/grafico-pizza-response';
 import { GraficosService } from '../../core/services/graficos.service';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-graficos',
   templateUrl: './graficos.component.html',
   styleUrls: ['./graficos.component.scss'],
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, MatButtonModule, MatDividerModule, MatIconModule],
 })
 export class GraficosComponent implements OnInit {
   
@@ -73,5 +76,9 @@ export class GraficosComponent implements OnInit {
 
   public voltar(): void {
     this.router.navigate(["selecao"]);
+  }
+
+  public irParaListaAvaliacoes() {
+    this.router.navigate(["lista-avaliacoes"]);
   }
 }

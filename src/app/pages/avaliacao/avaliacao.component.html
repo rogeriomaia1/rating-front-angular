@@ -12,9 +12,12 @@
 
 <div class="avaliacao-container">
   <form class="form-container">
+
+    <mat-icon class="icon-display small-button" (click)="voltar()">logout</mat-icon>
+
     <div class="form-group">
       <label for="escala">Sua avaliação:</label>
-      <input type="range" class="range" id="escala" name="escala" min="1" max="5" [(ngModel)]="request.score" step="1" list="tickmarks">
+      <input type="range" class="range" id="escala" name="escala" min="1" max="5" [(ngModel)]="request.score" (change)="verificaScore()" step="1" list="tickmarks">
       <datalist id="tickmarks">
         <option value="1" label="Péssimo"></option>
         <option value="2" label="Ruim"></option>
@@ -24,25 +27,39 @@
       </datalist>
       <div class="slider-labels">
         <span style="text-align:left">Péssimo</span>
-        <span>Ruim</span>
+        <span></span>
         <span>Regular</span>
-        <span>Bom</span>
+        <span></span>
         <span style="text-align:right">Ótimo</span>
       </div>
     </div>
 
+
+    <div class="form-group" *ngIf="request.score <= 2">
+      <label for="numeroContato">Celular:</label>
+      <input type="text" class="celular" id="numeroContato" name="numeroContato" [(ngModel)]="request.contactNumber" pattern="\(\d{2}\) \d{4,5}-\d{4}" placeholder="(xx) xxxxx-xxxx" required>
+
+      <label for="horaContato">Horário para contato:</label>
+      <select id="horaContato" name="horaContato" class="horaContato" [(ngModel)]="request.contactTime">
+        <option value="manha">Manhã</option>
+        <option value="tarde">Tarde</option>
+      </select>
+    </div>
+
+
     <div class="form-group">
       <label for="observacoes">Observações:</label>
-      <textarea id="observacoes" name="observacoes" rows="10" cols="60" [(ngModel)]="request.comments"></textarea>
+      <textarea id="observacoes" name="observacoes" rows="4" cols="80" [(ngModel)]="request.comments"></textarea>
     </div>
 
-    <div>
-      <button type="button" class="centraliza" (click)="enviarAvaliacao()">Votar</button>
+    <div class="centraliza">
+      <button type="button"  (click)="enviarAvaliacao()">Votar</button>
     </div>
 
-    <!-- Mensagem de erro -->
+    <!-- Div com mensagem de erro-->
     <div *ngIf="errorMessage" class="centraliza error-message">
       {{ errorMessage }}
     </div>
+
   </form>
 </div>

@@ -23,16 +23,15 @@ export class SelecaoService {
       );
   }
 
-  private handleError(error: HttpErrorResponse) {
-    let errorMessage = 'Houve um erro  na chamada da API para validar email.';
 
-    if (error.error instanceof ErrorEvent) {
-      
-      errorMessage = `Error: ${error.error.message}`;
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.status === 500) {
+      errorMessage =  `Error Code: ${error.status}\nMessage: ${error.message}`;
     } else {
-      
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      errorMessage = 'Você já realizou a votação! Obrigado.';
     }
     return throwError(errorMessage);
   }
+
 }

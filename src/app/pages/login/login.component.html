@@ -1,5 +1,3 @@
-
-   
    <div class="titulo-principal">
       <section >
          <div class="centraliza">
@@ -11,23 +9,25 @@
    </div>
 
    <div class="login-container">  
+      
+      <form>
+         <mat-icon class="icon-display small-button" (click)="voltar()">logout</mat-icon>
+         
+         <div class="form-group centraliza ">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" [(ngModel)]="request.email" required>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" [(ngModel)]="request.password" required>
+         </div>
+         <div>
+            <button type="button" class="centraliza" (click)="autenticar()">Entrar</button>
+         </div>
 
-   <form>
-      <div class="form-group centraliza">
-         <label for="username">Usuário:</label>
-         <input type="text" id="username" name="username" [(ngModel)]="request.email" required>
-         <label for="password">Senha:</label>
-         <input type="password" id="password" name="password" [(ngModel)]="request.password" required>
-      </div>
-      <div>
-         <button type="button" class="centraliza" (click)="autenticar()">Entrar</button>
-      </div>
-
-      <br/>
-      <!-- Mensagem de erro -->
-      <div *ngIf="errorMessage" class="centraliza error-message">
-         {{ errorMessage }}
-      </div>
-   </form>
+         <br/>
+         <!-- Mensagem de erro -->
+         <div *ngIf="errorMessage" class="centraliza error-message">
+            {{ errorMessage }}
+         </div>
+      </form>
 </div>
 

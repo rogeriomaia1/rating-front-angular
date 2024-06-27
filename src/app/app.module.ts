@@ -12,15 +12,17 @@ import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatIconModule} from '@angular/material/icon';
 import { MatInputModule} from '@angular/material/input';
 import { AvaliacaoComponent } from './pages/avaliacao/avaliacao.component';
-
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { SuccessDialogComponent } from './success-dialog/success-dialog.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AvaliacaoComponent
+    AvaliacaoComponent,
+    SuccessDialogComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,9 @@ import { AvaliacaoComponent } from './pages/avaliacao/avaliacao.component';
     ReactiveFormsModule, 
     JsonPipe, 
     MatInputModule,  
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    ReactiveFormsModule
    
   ],
   providers: [

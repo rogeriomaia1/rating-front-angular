@@ -1,6 +1,3 @@
-
-    
-    
 <section class="Header">
     <div class="titulo-principal">
       <section >
@@ -13,17 +10,19 @@
     </div>
 </section>
 
-<div class="grid-resultado-container ">  
-    <form class="centraliza">
-        <div class="subtitulo">Composição da avaliação de compra</div>
-        <div class="grafico-pizza">
-            <canvas id="myChart"></canvas>
-          </div>
-          
-          <div>
-              <div class="form-group">
-                  <button type="button"  class="button-cinza"(click)="voltar()">Voltar</button>
-                </div>
-            </div>
-        </form>
+<div class="grid-resultado-container ">
+    
+    <div class="icon-container">
+        <mat-icon class="icon-display small-button" (click)="irParaListaAvaliacoes()">table_view</mat-icon>
+        <mat-icon class="icon-display small-button" (click)="voltar()">logout</mat-icon>
     </div>
+
+    <form class="centraliza">
+        
+        <div class="subtitulo">Composição da avaliação de compra</div>
+            <div class="grafico-pizza">
+            <canvas id="myChart"></canvas>
+        </div>
+ 
+    </form>
+</div>

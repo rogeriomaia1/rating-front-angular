@@ -2,15 +2,13 @@
   max-width: 600px;
   margin: auto;
   padding: 20px;
-  
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .range {
@@ -29,40 +27,31 @@
   text-align: center;
   font-size: 12px;
 }
+
 label {
   display: block;
   margin-bottom: 5px;
 }
 
-input {
-  width: 100%;
+input, select {
+ 
   padding: 8px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 3px;
   margin-bottom: 10px;
 }
-.rating-slider {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+
+input[type="text"].celular {
+  width: 30%; /* Ajuste para o input do celular */
 }
 
-.rating-button {
-  background-color: #f0f0f0;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+select.horaContato {
+  width: 30%; /* Ajuste para o select do horário de contato */
 }
-
-.rating-button:hover {
-  background-color: #e0e0e0;
-}
-
 
 button {
   background-color: black;
-  width: 100%;
   color: white;
   padding: 10px 15px;
   margin-top: 20px !important;
@@ -74,13 +63,13 @@ button {
 
 .container img {
   max-width: 50px;
-  max-height:50px;
+  max-height: 50px;
   width: auto;
   height: auto;
 }
 
 img {
-  vertical-align: top
+  vertical-align: top;
 }
 
 .titulo-principal {
@@ -89,7 +78,7 @@ img {
   font-weight: bold;
   font-size: 200%;
   text-align: center;
- }
+}
 
 .centraliza {
   display: inline-block;
@@ -99,10 +88,8 @@ img {
   margin-top: 10px;
 }
 
-  
 .avaliacao-container textarea {
   margin-bottom: 10px;
-  
 }
 
 .error-message {
@@ -114,4 +101,35 @@ img {
   border-radius: 4px;
 }
 
-  
+.small-button {
+  font-size: 12px;
+  background-color: #28405b;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  top: 10px;
+  right: -95%;
+  border: none;
+  border-radius: 3px;
+}
+
+.small-button:hover {
+  background-color: #0056b3;
+}
+
+.icon-container {
+  display: flex; /* Utiliza display flex para alinhar os ícones lado a lado */
+  gap: 10px; /* Espaçamento entre os ícones */
+}
+
+.icon-display {
+  font-size: 16px; /* Tamanho do ícone */
+}
+
+
+

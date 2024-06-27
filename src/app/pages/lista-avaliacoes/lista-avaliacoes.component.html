@@ -1,0 +1,38 @@
+<div class="titulo-principal">
+    <section>
+      <div class="centraliza">
+        <img src="../../../assets/img/sankofa_logo.jpg" alt="" />
+      </div>
+      <br />
+    </section>
+    Lista de Avaliações
+  </div>
+  
+  <div class="avaliacoes-container">
+    <div class="icon-container">
+        <mat-icon class="icon-display small-button" (click)="irParaDashboard()">bar_chart</mat-icon>
+        <mat-icon class="icon-display small-button" (click)="voltar()">logout</mat-icon>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Score</th>
+          <th>Comentários</th>
+          <th>Celular</th>
+          <th>Horário de Contato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let avaliacao of avaliacoes">
+          <td>{{ avaliacao.email }}</td>
+          <td>{{ avaliacao.score }}</td>
+          <td>{{ avaliacao.comments }}</td>
+          <td>{{ avaliacao.contactNumber || '-' }}</td>
+          <td>{{ avaliacao.contactTime || '-' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
